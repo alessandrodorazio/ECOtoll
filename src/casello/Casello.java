@@ -1,6 +1,6 @@
 package casello;
 
-class Casello {
+public class Casello {
     private String name;
     private int km;
 
@@ -14,4 +14,12 @@ class Casello {
 
     public int getKm() { return km; }
     public void setKm(int km) { this.km = km; }
+
+    @Override
+    public String toString() {
+        return "Casello{" +
+                "name='" + name + '\'' +
+                ", km=" + km +
+                '}';
+    }
 }
