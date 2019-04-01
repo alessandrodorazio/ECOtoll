@@ -4,12 +4,11 @@ import veicolo.*;
 import casello.*;
 
 import java.util.Arrays;
-import java.util.Map;
 
 public class Autostrada {
 
     private String denominazione;
-    private Map caselli;
+    private Casello[] caselli;
     private boolean inPianura; //se in montagna settare a false
     private float variazioneInPianura;
     private float variazioneInMontagna;
@@ -19,7 +18,7 @@ public class Autostrada {
     private final boolean[] oneriCostiEsterniAttivi = {false, false, false, false, false, false};
     private final float[] oneriCostiEsterni = {0f, 0f, 0f, 0f, 0f, 0f}; //Euro 1-6
 
-    public Autostrada(String denominazione, Map caselli, boolean inPianura, float variazioneInPianura, float variazioneInMontagna, float[] tariffaUnitaria) {
+    public Autostrada(String denominazione, Casello[] caselli, boolean inPianura, float variazioneInPianura, float variazioneInMontagna, float[] tariffaUnitaria) {
         this.denominazione = denominazione;
         this.caselli = caselli;
         this.inPianura = inPianura;
@@ -42,10 +41,6 @@ public class Autostrada {
         return 0f;
     }
 
-    public void aggiungiCasello(int km, String nomeCasello) {
-        caselli.put(km, nomeCasello);
-    }
-
     protected void setTariffaUnitariaSingola(float nuovaTariffa, int classeTariffaria) {
         this.tariffaUnitaria[classeTariffaria-1] = nuovaTariffa;
     }
@@ -54,7 +49,7 @@ public class Autostrada {
     public String toString() {
         return "Autostrada{" +
                 "denominazione='" + denominazione + '\'' +
-                ", caselli=" + caselli +
+                ", caselli=" + Arrays.toString(caselli) +
                 ", inPianura=" + inPianura +
                 ", variazioneInPianura=" + variazioneInPianura +
                 ", variazioneInMontagna=" + variazioneInMontagna +
