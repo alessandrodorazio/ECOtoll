@@ -3,53 +3,37 @@ import veicolo.*;
 import pedaggio.*;
 import casello.*;
 
-import java.util.Map;
-import java.util.TreeMap;
 
 public class Program {
 
+    public static final String nomeSoftware = "ECOtoll";
+    public static final String autore = "Alessandro D'Orazio";
+    public static final float versione = 1.0f;
 
-    public static void main(String[] args){
+    public static void main(String[] args)
+    {
 
-        /* Esempio veicoli, realizzati mediante array, ottimizzazione futura tramite connessione via database */
-        Veicolo[] veicoli = new Veicolo[3];
-        veicoli[0] = Veicolo.nuovoVeicolo("Smart", "ForTwo", 2014, "SM444RT", "Euro 4", 2, 3, 125); //leggero
-        veicoli[1] = Veicolo.nuovoVeicolo("Scania", "AutoArticolato", 2016, "SC333IA", "Euro 5", 4, 3200, 200); //pesante
-        veicoli[2] = Veicolo.nuovoVeicolo("Opel", "Astra", 2009, "AS777RA", "Euro 3", 2, 3, 140); //pesante
+        System.out.println(nomeSoftware + " - " + autore + " / " + versione);
 
-        System.out.println("Veicoli");
-        System.out.println(veicoli[0]);
-        System.out.println(veicoli[1]);
-        System.out.println(veicoli[2]);
-        System.out.println("\n");
+        //inserimento dell'autostrada
+        float[] tariffaUnitaria = { 1f, 1.2f, 1.4f, 1.5f, 1.6f };
+        Autostrada a14 = new Autostrada("Autostrada A14", null, false, tariffaUnitaria);
 
-        /* Esempio caselli e autostrada */
-        Map caselli = new TreeMap();
-        caselli.put(300, "AQ Ovest");
-        caselli.put(305, "AQ Est");
-        caselli.put(310, "Assergi");
-        System.out.println("Caselli");
-        System.out.println(caselli.size());
+        //inserimento di caselli
+        a14.nuovoCasello("AQ Ovest", 300);
+        a14.nuovoCasello("AQ Est", 305);
+        a14.nuovoCasello("Assergi", 310);
 
-        System.out.println(caselli.get(300));
-        System.out.println(caselli.get(305));
-        System.out.println(caselli.get(310));
-        System.out.println("\n");
+        //inserimento di veicoli
+        Veicolo smart = Veicolo.nuovoVeicolo("ForTwo", "Smart", 2006, "AB123YZ", "Euro 4", 2, 990, 120);
+        Veicolo camion = Veicolo.nuovoVeicolo("R 730", "Scania", 2011, "NO1M4C", "Euro 6", 5, 3800, 240);
+        System.out.println(smart.toString());
+        System.out.println(camion.toString());
 
-        System.out.println(caselli.entrySet());
+        //calcolo pedaggio
+        System.out.println(Pedaggio.pedaggioMsg(a14.caselli.get(0), a14.caselli.get(2), a14, smart)); //da AQ est ad Assergi con la Smart
+        System.out.println(Pedaggio.pedaggioMsg(a14.caselli.get(0), a14.caselli.get(2), a14, camion)); //da AQ est ad Assergi con il camion
 
-        float[] tariffaUnitaria = {1f, 1.24f, 2f, 2.24f, 3f};
-        Autostrada a14 = new Autostrada("Autostrada A14", caselli, true, 0f, 0f, tariffaUnitaria);
-        System.out.println("Autostrade");
-        System.out.println(a14.toString()); //informazioni sull'autostrada
-        System.out.println("\n");
-
-        /* Esempio pedaggio */
-        System.out.println("Pedaggi");
-        /*
-        System.out.println("Pedaggio per il veicolo " + veicoli[0].targa + " per il tratto " + caselli.get(300) + " - " + caselli.get(305) + " è di " + Pedaggio.calcoloPedaggio(caselli.get(0), caselli.get(2), a14, veicoli[0]) + "€");
-        System.out.println("Pedaggio per il veicolo " + veicoli[1].targa + " per il tratto " + caselli.get(305) + " - " + caselli.get(310) + " è di " + Pedaggio.calcoloPedaggio(caselli.get(1), caselli.get(2), a14, veicoli[1]) + "€");
-        */
     }
 
 }

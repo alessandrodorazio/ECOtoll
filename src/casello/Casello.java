@@ -1,24 +1,27 @@
 package casello;
 
 public class Casello {
-    private String name;
+
+    private String nome;
     private int km;
 
-    public Casello(String name, int km) {
-        this.name = name;
+    public Casello(String name, int km)
+    {
+        this.nome = name;
         this.km = km;
     }
 
-    public String getName() { return name; }
-    public void setName(String name) { this.name = name; }
+    public String getNome() { return nome; }
+    public void setNome(String nome) { this.nome = nome; }
 
     public int getKm() { return km; }
     public void setKm(int km) { this.km = km; }
 
     @Override
-    public String toString() {
+    public String toString()
+    {
         return "Casello{" +
-                "name='" + name + '\'' +
+                "nome='" + nome + '\'' +
                 ", km=" + km +
                 '}';
     }
