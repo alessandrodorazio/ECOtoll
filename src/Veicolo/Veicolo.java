@@ -17,6 +17,7 @@ public class Veicolo {
 
     public static Veicolo nuovoVeicolo(String modello, String marca, int anno, String targa, String classeAmbientale, int numAssi, int peso, int altezza) {
         Veicolo v;
+        if(numAssi <= 1) throw new Error("Il numero di assi deve essere maggiore o uguale a 2");
         if(numAssi == 2 && altezza <= 130)
             v = new VeicoloLeggero(modello,marca,anno,targa,classeAmbientale,numAssi,peso,altezza);
         else
