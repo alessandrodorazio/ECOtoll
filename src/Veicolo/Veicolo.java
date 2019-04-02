@@ -18,13 +18,10 @@ public class Veicolo {
     }
 
     public static Veicolo nuovoVeicolo(String modello, String marca, int anno, String targa, String classeAmbientale, int assi, int peso, int altezza) {
-        Veicolo v;
-        if(assi == 2 && altezza <= 130)
-            v = new VeicoloLeggero(modello,marca,anno,targa,classeAmbientale,assi,peso,altezza);
+        if(assi == 2 && altezza <= 130) //veicolo leggero o pesante?
+            return new VeicoloLeggero(modello,marca,anno,targa,classeAmbientale,assi,peso,altezza);
         else
-            v = new VeicoloPesante(modello,marca,anno,targa,classeAmbientale,assi,peso,altezza);
-
-        return v;
+            return new VeicoloPesante(modello,marca,anno,targa,classeAmbientale,assi,peso,altezza);
     }
 
     public static char getClasseTariffaria(Veicolo obj)
@@ -36,11 +33,8 @@ public class Veicolo {
     public static int getClasseTariffariaInt(Veicolo obj)
     {
         int assi = (obj.assi>5)?5:obj.assi;
-        return (obj instanceof VeicoloLeggero)?1:((assi==2)?2:assi);
+        return (obj instanceof VeicoloLeggero)?1:assi;
     }
-
-    public int getClasseAmbientaleInt() { return (classeAmbientale.charAt(classeAmbientale.length() - 1)) - 48; }
-
 
     @Override
     public String toString()

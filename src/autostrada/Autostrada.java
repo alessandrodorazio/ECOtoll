@@ -5,21 +5,19 @@ import casello.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedList;
 
 public class Autostrada {
 
     private String denominazione;
-    public ArrayList<Casello> caselli;
+    public LinkedList<Casello> caselli;
     private boolean tipologia; //true = pianura, false = montagna
 
     private float[] tariffaUnitaria; //A-B-3-4-5
 
-    public Autostrada(String denominazione, ArrayList<Casello> caselli, boolean tipologia, float[] tariffaUnitaria) {
+    public Autostrada(String denominazione, LinkedList<Casello> caselli, boolean tipologia, float[] tariffaUnitaria) {
         this.denominazione = denominazione;
-        if(caselli == null)
-            this.caselli = new ArrayList<Casello>();
-        else
-            this.caselli = caselli;
+        this.caselli = caselli;
         this.tipologia = tipologia;
         this.tariffaUnitaria = tariffaUnitaria;
     }

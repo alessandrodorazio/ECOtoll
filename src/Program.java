@@ -3,6 +3,8 @@ import veicolo.*;
 import pedaggio.*;
 import casello.*;
 
+import java.util.LinkedList;
+
 
 public class Program {
 
@@ -13,11 +15,11 @@ public class Program {
     public static void main(String[] args)
     {
 
-        System.out.println(nomeSoftware + " - " + autore + " / " + versione);
+        System.out.println(nomeSoftware + " - " + autore + " / v" + versione);
 
         //inserimento dell'autostrada
         float[] tariffaUnitaria = { 1f, 1.2f, 1.4f, 1.5f, 1.6f };
-        Autostrada a14 = new Autostrada("Autostrada A14", null, false, tariffaUnitaria);
+        Autostrada a14 = new Autostrada("Autostrada A14", new LinkedList<Casello>(), false, tariffaUnitaria);
 
         //inserimento di caselli
         a14.nuovoCasello("AQ Ovest", 300);
