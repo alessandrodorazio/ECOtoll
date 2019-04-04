@@ -19,9 +19,9 @@ public class Veicolo {
 
     public static Veicolo nuovoVeicolo(String modello, String marca, int anno, String targa, String classeAmbientale, int assi, int peso, int altezza) {
         if(assi == 2 && altezza <= 130) //veicolo leggero o pesante?
-            return new VeicoloLeggero(modello,marca,anno,targa,classeAmbientale,assi,peso,altezza);
+            return new VeicoloLeggero(modello,marca,anno,targa,classeAmbientale,assi,peso,altezza); //veicolo leggero
         else
-            return new VeicoloPesante(modello,marca,anno,targa,classeAmbientale,assi,peso,altezza);
+            return new VeicoloPesante(modello,marca,anno,targa,classeAmbientale,assi,peso,altezza); //veicolo pesante
     }
 
     public static char getClasseTariffaria(Veicolo obj)

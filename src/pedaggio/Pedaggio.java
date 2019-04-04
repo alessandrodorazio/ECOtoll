@@ -20,8 +20,8 @@ public class Pedaggio {
         float kmPercorsi = caselloUscita.getKm() - caselloEntrata.getKm();
         if(kmPercorsi == 0) throw new Error("I due caselli coincidono"); //errore: i caselli coincidono
         if(kmPercorsi < 0) kmPercorsi*=-1; //nel caso in cui la direzione sia opposta
-        float pedaggio = kmPercorsi * autostrada.getTariffaUnitaria(veicolo) * IVA;
-        return Helper.arrotondamento(pedaggio);
+        float pedaggio = kmPercorsi * autostrada.getTariffaUnitaria(veicolo) * IVA; //calcolo del pedaggio
+        return Helper.arrotondamento(pedaggio); //arrotondiamo tramite la classe Helper
     }
 
 }
@@ -31,8 +31,8 @@ class Helper {
     public static float arrotondamento(float value)
     {
         //arrotondamento ai 10 centesimi di euro
-        BigDecimal bd = new BigDecimal(value).setScale(1, RoundingMode.HALF_UP );
-        return bd.floatValue();
+        BigDecimal bd = new BigDecimal(value).setScale(1, RoundingMode.HALF_UP ); //arrotondamento con BigDecimal e il suo metodo setScale, per impostare l'arrotondamento ai 10 centesimi (per eccesso o per difetto)
+        return bd.floatValue(); //conversione del BigDecimal in float
     }
 
 }

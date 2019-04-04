@@ -6,7 +6,7 @@ public class VeicoloLeggero extends Veicolo implements InterfacciaVeicolo {
         super(modello,marca,anno,classeAmbientale,targa,assi,peso,altezza);
     }
 
-    public char getClasseTariffaria() { return 'A'; }
+    public char getClasseTariffaria() { return 'A'; } //il veicolo leggero è solamente classe A
     public int getClasseTariffariaInt() { return '1'; }
 
 }

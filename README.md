@@ -11,10 +11,12 @@ Per veicolo leggero si intende un veicolo con due assi (o meno) e un'altezza mas
 ## Veicolo
 Il veicolo è l'entità con sottoclassi VeicoloLeggero e VeicoloPesante, per registrare modello, marca, targa, classe ambientale, anno, assi, peso e altezza. Inoltre tramite il metodo nuovoVeicolo è possibile istanziare un veicolo, sia di tipo leggero che pesante. Inoltre è presente l'interfaccia InterfacciaVeicolo, implementata da VeicoloLeggero e VeicoloPesante per realizzare i metodi della classe tariffaria.
 
+Il veicolo pesante deve avere ALMENO due assi
+
 ## Pedaggio
 Il pedaggio contiene un Helper per l'arrotondamento del pedaggio finale ai 10 centesimi di euro (realizzato tramite BigDecimal), e il calcolo del pedaggio, che si ottiene moltiplicando i km percorsi con la tariffa unitaria del veicolo, moltiplicati a sua volta per l'IVA (22%)
 
-## Casello
+## Casello
 L'entità casello dispone di nome e km in cui si trova. Viene utilizzata dall'autostrada per registrare i caselli di quest'ultima e dall'entità pedaggio per il calcolo del pedaggio autostradale.
 
 ## Normative future

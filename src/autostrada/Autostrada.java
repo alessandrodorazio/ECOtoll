@@ -3,6 +3,7 @@ package autostrada;
 import veicolo.*;
 import casello.*;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedList;
@@ -19,10 +20,11 @@ public class Autostrada {
         this.denominazione = denominazione;
         this.caselli = caselli;
         this.tipologia = tipologia;
+        if(tariffaUnitaria.length != 5) throw new Error("Il vettore delle tariffe unitarie deve contenere esattamente cinque elementi");
         this.tariffaUnitaria = tariffaUnitaria;
     }
 
-    public void nuovoCasello(String nome, int km){ caselli.add(new Casello(nome, km)); }
+    public void nuovoCasello(String nome, int km){ caselli.add(new Casello(nome, km)); } //istanziamo un nuovo casello e aggiungiamolo alla linkedlist caselli
 
     public float getTariffaUnitaria(Veicolo veicolo) { return tariffaUnitaria[Veicolo.getClasseTariffariaInt(veicolo) - 1] ; }
 
