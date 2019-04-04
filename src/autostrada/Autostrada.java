@@ -24,8 +24,12 @@ public class Autostrada {
         this.tariffaUnitaria = tariffaUnitaria;
     }
 
-    public void nuovoCasello(String nome, int km){ caselli.add(new Casello(nome, km)); } //istanziamo un nuovo casello e aggiungiamolo alla linkedlist caselli
+    public String getDenominazione() { return denominazione; }
+    public LinkedList<Casello> getCaselli() { return caselli; }
+    public boolean isTipologia() { return tipologia; }
+    public float[] getTariffaUnitaria() { return tariffaUnitaria; }
 
+    public void nuovoCasello(String nome, int km){ caselli.add(new Casello(nome, km)); } //istanziamo un nuovo casello e aggiungiamolo alla linkedlist caselli
     public float getTariffaUnitaria(Veicolo veicolo) { return tariffaUnitaria[Veicolo.getClasseTariffariaInt(veicolo) - 1] ; }
 
     @Override

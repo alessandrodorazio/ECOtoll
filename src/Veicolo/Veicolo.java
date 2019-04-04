@@ -2,8 +2,8 @@ package veicolo;
 
 public class Veicolo {
 
-    public String modello, marca, targa, classeAmbientale;
-    public int assi, anno, peso, altezza; //peso in kg, altezza in cm
+    protected String modello, marca, targa, classeAmbientale;
+    protected int assi, anno, peso, altezza; //peso in kg, altezza in cm
 
     public Veicolo(String modello, String marca, int anno, String targa, String classeAmbientale, int assi, int peso, int altezza)
     {
@@ -16,6 +16,15 @@ public class Veicolo {
         this.peso = peso;
         this.altezza = altezza;
     }
+
+    public String getModello() { return modello; }
+    public String getMarca() { return marca; }
+    public String getTarga() { return targa; }
+    public String getClasseAmbientale() { return classeAmbientale; }
+    public int getAssi() { return assi; }
+    public int getAnno() { return anno; }
+    public int getPeso() { return peso; }
+    public int getAltezza() { return altezza; }
 
     public static Veicolo nuovoVeicolo(String modello, String marca, int anno, String targa, String classeAmbientale, int assi, int peso, int altezza) {
         if(assi == 2 && altezza <= 130) //veicolo leggero o pesante?

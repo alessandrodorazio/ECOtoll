@@ -12,7 +12,7 @@ public class Pedaggio {
 
     public static String pedaggioMsg(Casello caselloEntrata, Casello caselloUscita, Autostrada autostrada, Veicolo veicolo){
         float pedaggio = calcoloPedaggio(caselloEntrata, caselloUscita, autostrada, veicolo);
-        return "Il pedaggio da " + caselloEntrata.getNome() + " a " + caselloUscita.getNome() + " per il veicolo " + veicolo.marca + " " + veicolo.modello + " targato " + veicolo.targa + " è di " + pedaggio + " euro";
+        return "Il pedaggio da " + caselloEntrata.getNome() + " a " + caselloUscita.getNome() + " per il veicolo " + veicolo.getMarca() + " " + veicolo.getModello() + " targato " + veicolo.getTarga() + " è di " + pedaggio + " euro";
     }
 
     public static float calcoloPedaggio(Casello caselloEntrata, Casello caselloUscita, Autostrada autostrada, Veicolo veicolo)

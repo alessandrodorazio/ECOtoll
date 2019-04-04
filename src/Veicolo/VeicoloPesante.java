@@ -2,7 +2,7 @@ package veicolo;
 
 public class VeicoloPesante extends Veicolo implements InterfacciaVeicolo {
 
-    public char classeTariffaria;
+    private char classeTariffaria;
 
     public VeicoloPesante(String modello, String marca, int anno, String targa, String classeAmbientale, int assi, int peso, int altezza){
         super(modello,marca,anno,targa, classeAmbientale, assi,peso,altezza);
