@@ -10,11 +10,14 @@ public class VeicoloPesante extends Veicolo implements InterfacciaVeicolo {
         this.classeTariffaria = this.getClasseTariffaria();
     }
 
-    public char getClasseTariffaria() {
+    public char calcoloClasseTariffaria() {
         int assi = (this.assi>5)?5:this.assi;
         return ((assi==2)?'B':(char)(assi+'0'));
     }
 
+    public char getClasseTariffaria() { return this.classeTariffaria; }
+
     public int getClasseTariffariaInt() { return (this.assi>5)?5:this.assi; }
+    
 
 }
