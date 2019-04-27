@@ -6,7 +6,6 @@ public class VeicoloPesante extends Veicolo implements InterfacciaVeicolo {
 
     public VeicoloPesante(String modello, String marca, int anno, String targa, String classeAmbientale, int assi, int peso, int altezza){
         super(modello,marca,anno,targa, classeAmbientale, assi,peso,altezza);
-        if(assi <= 2) throw new Error("Il numero di assi deve essere maggiore o uguale a 2!"); //un veicolo pesante deve avere almeno 2 assi
         this.classeTariffaria = this.calcoloClasseTariffaria();
     }
 
